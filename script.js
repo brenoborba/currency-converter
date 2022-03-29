@@ -1,7 +1,7 @@
 const formulario = document.getElementById("currencyForm")
 const usdInput = document.getElementById("usdInput")
 const output = document.querySelector('.output')
-var url = 'https://free.currconv.com/api/v7/convert?q=USD_BRL,BRL_USD&compact=ultra&apiKey=0c71d310fb1565cfde6c';
+const url = 'https://free.currconv.com/api/v7/convert?q=USD_BRL,BRL_USD&compact=ultra&apiKey=0c71d310fb1565cfde6c';
 
 
 function displayResult(usdToday, usdValue){
@@ -10,8 +10,8 @@ function displayResult(usdToday, usdValue){
 }
 
 formulario.onsubmit = e => {
-    var usdValue = usdInput.value
-    var usdToday
+    let usdValue = usdInput.value
+    let usdToday
 
     e.preventDefault()
 
