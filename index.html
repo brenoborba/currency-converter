@@ -4,67 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- 
-        api key: 0c71d310fb1565cfde6c
-     -->
+    <title>USD to BRL</title>
 
-     <style>
-         body{
-             font-family: Arial, Helvetica, sans-serif;
-         }
-
-         .outputStyle{
-             display: flex;
-         }
-     </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>USD para BRL</h1>
-    <form action="." method="get" id="currencyForm">
-        <label>
-            USD:
-            <input type="text" id="usdInput">
-        </label>
+    <div class="container">
+        <h1>USD to BRL</h1>
+        <form action="." method="get" id="currencyForm">
+            <label>
+                USD
+                <input type="text" id="usdInput" placeholder="Insert the value in dollars">
+            </label>
 
-        <br><br>
+            <br>
 
-        <label class="outputStyle">
-            BRL: 
-            <div class="output"></div>
-        </label>
-
-        <br>
-
-        <button type="submit">Calcular</button>
-    </form>
+            <label class="outputStyle">
+                BRL: 
+                <div class="output"></div>
+            </label>
 
 
-    <script>
-        const formulario = document.getElementById("currencyForm")
-        const usdInput = document.getElementById("usdInput")
-        const output = document.querySelector('.output')
+            <button type="submit">Calculate</button>
+        </form>
+    </div>
 
-        var query = 'USD_BRL'
-        var url = 'https://free.currconv.com/api/v7/convert?q=USD_BRL,BRL_USD&compact=ultra&apiKey=0c71d310fb1565cfde6c';
-
-
-        function displayResult(usdToday, usdValue){
-            output.innerHTML = `\u00A0R$${Number(usdToday * usdValue).toFixed(2)}`
-
-        }
-        
-        formulario.onsubmit = e => {
-            var usdValue = usdInput.value
-            var usdToday
-
-            e.preventDefault()
-            
-            fetch(url)
-            .then(res => res.json())
-            .then(data => usdToday = data.USD_BRL)
-            .then(() => displayResult(usdToday, usdValue))
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
